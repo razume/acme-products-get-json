@@ -1,0 +1,48 @@
+h1 {
+  text-align: center;
+  color: white;
+  text-shadow: 4px 4px 4px rgb(32, 167, 167);
+  font-family: 'Rubik', sans-serif;
+}
+
+.company-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.company-tile {
+  background-color: rgba(32, 167, 167, 0.575);
+  font-family: 'Rubik', sans-serif;
+  border-radius: 6%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 1px 1px 14px 1px rgba(37, 37, 37, 0.253);
+  text-align: center;
+  margin: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 4px;
+  width: 15rem;
+  height: auto;
+}
+
+.company-tile * {
+  color: white;
+  text-shadow: 1px 1px 4px rgba(17, 17, 17, 0.555);
+}
+
+.company-tile > h2 {
+  border-radius: 5px;
+  width: 4rem;
+  text-transform: capitalize;
+}
+
+.company-tile > p {
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: left;
+}

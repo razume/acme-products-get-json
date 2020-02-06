@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  </head>
+  <body>
+    <h1>Company List</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+      const { useEffect, useState } = React;
+
+      const App = () => {
+        const [products, setProducts] = useState([]);
+        useEffect(() => {
+          axios.get('/api/products').then(productsJSON => {
+            setProducts(productsJSON.data);
+          });
+        }, []);
+
+        return (
+          <div className="company-container">
+            {products.map(product => {
+              return (
+                <div className="company-tile" key={product.id}>
+                  <h2>{product.name}</h2>
+                  <p>> {product.description}</p>
+                  <p>${product.suggestedPrice.toFixed(2)}</p>
+                </div>
+              );
+            })}
+          </div>
+        );
+      };
+      ReactDOM.render(<App />, document.querySelector('#root'));
+    </script>
+  </body>
+</html>
